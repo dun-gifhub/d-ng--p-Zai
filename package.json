@@ -1,0 +1,20 @@
+{
+  "name": "thu-vien-server",
+  "version": "1.0.0",
+  "description": "May chu quan ly muon - tra sach: API, co so du lieu SQLite, tu dong kiem tra han tra, gui SMS va Email that",
+  "type": "module",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "start": "node --experimental-sqlite --no-warnings server.js",
+    "test-send": "node --experimental-sqlite --no-warnings scripts/test-send.js",
+    "test-gui": "node --experimental-sqlite --no-warnings scripts/test-send.js",
+    "import": "node --experimental-sqlite --no-warnings scripts/import-queue.js",
+    "check-now": "node --experimental-sqlite --no-warnings scripts/check-now.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.14"
+  }
+}

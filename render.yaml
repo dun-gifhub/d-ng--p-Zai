@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: thu-vien-lop
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /var/data/thu-vien.db
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: CRON_SCHEDULE
+        value: "0 8 * * *"
+      - key: TIMEZONE
+        value: Asia/Ho_Chi_Minh
+      - key: NOTIFY_BEFORE_3
+        value: "1"
+      - key: NOTIFY_BEFORE_1
+        value: "1"
+      - key: NOTIFY_ON_DUE
+        value: "1"
+      - key: NOTIFY_OVERDUE
+        value: "1"
+      - key: SMS_PROVIDER
+        value: none
+      - key: EMAIL_PROVIDER
+        value: none
+    disk:
+      name: thu-vien-data
+      mountPath: /var/data
+      sizeGB: 1
